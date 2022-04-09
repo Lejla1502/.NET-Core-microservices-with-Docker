@@ -38,7 +38,9 @@ To run the web API service, run the following command to start a new Docker cont
 docker run -it --rm -p 5200:80 --name pizzabackendcontainer pizzabackend
 You can browse to http://localhost:5200/pizzainfo and see a JSON representation of Contoso Pizza's menu.
 
+## Docker Compose
 
+To run multiple Docker files locally, we use docker compose tool.
 
 ## Legal Notices
 
