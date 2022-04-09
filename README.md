@@ -13,20 +13,21 @@ Along with the necessary Docker commands for building an image and running Docke
 
 Check out the Learn module to find out all about [Building your first microservice in .NET](https://docs.microsoft.com/learn/modules/dotnet-microservices).
 
+## Docker file
 
-## Contributing
+The following will be performed sequentially when Docker file is invoked:
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
-
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Pull the mcr.microsoft.com/dotnet/sdk:6.0 image and name the image build
+Set the working directory within the image to /src
+Copy the file named backend.csproj found locally to the /src directory that was just created
+Calls dotnet restore on the project
+Copy everything in the local working directory to the image
+Calls dotnet publish on the project
+Pull the mcr.microsoft.com/dotnet/aspnet:6.0 image
+Set the working directory within the image to /app
+Exposes port 80 and 443
+Copy everything from the /app directory of the build image created above into the app directory of this image
+Sets the entrypoint of this image to dotnet and passes backend.dll as an argument
 
 ## Legal Notices
 
