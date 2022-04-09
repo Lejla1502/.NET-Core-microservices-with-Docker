@@ -34,6 +34,12 @@ our image building process. Docker creates separate layer for each instruction i
 changes from the previous layer. Docker also caches these layers so it doesn't hav to rebuild the layer when it is unchanged. That's why we've copied 
 .csproj file and ran dotnet restore first. So all the packages are cached within that layer and they don't have to be relearn when we rebuild image.
 
+To run the web API service, run the following command to start a new Docker container using the pizzabackend image and expose the service on port 5200:
+docker run -it --rm -p 5200:80 --name pizzabackendcontainer pizzabackend
+You can browse to http://localhost:5200/pizzainfo and see a JSON representation of Contoso Pizza's menu.
+
+
+
 ## Legal Notices
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
