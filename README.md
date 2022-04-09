@@ -29,6 +29,11 @@ Exposes port 80 and 443
 Copy everything from the /app directory of the build image created above into the app directory of this image
 Sets the entrypoint of this image to dotnet and passes backend.dll as an argument
 
+We've copied .csproj file separately and then ran dotnet restore, while dotnet publish command would have done it all. we've separated this to optimize
+our image building process. Docker creates separate layer for each instruction in the file. The layers are stacked and each one is a delta of the 
+changes from the previous layer. Docker also caches these layers so it doesn't hav to rebuild the layer when it is unchanged. That's why we've copied 
+.csproj file and ran dotnet restore first. So all the packages are cached within that layer and they don't have to be relearn when we rebuild image.
+
 ## Legal Notices
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
