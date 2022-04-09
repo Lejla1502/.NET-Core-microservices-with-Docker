@@ -42,6 +42,10 @@ You can browse to http://localhost:5200/pizzainfo and see a JSON representation 
 
 To run multiple Docker files locally, we use docker compose tool.
 
+The code from Docker compose yaml does several things:
+  -First, it creates the frontend website, naming it pizza frontend. The code tells Docker to build it, pointing to the Dockerfile found in the frontend folder. Then the code sets an environment variable for the website: backendUrl=http://backend. Finally, this code opens a port and declares it depends on the backend service.
+  -The backend service gets created next. It's named pizzabackend. It's built from the same Dockerfile. The last command specifies which port to open.
+
 ## Legal Notices
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
