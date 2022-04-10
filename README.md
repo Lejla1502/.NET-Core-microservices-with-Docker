@@ -46,6 +46,11 @@ docker build and docker run for every container. By default, it also sets up a s
 The code from Docker compose yaml does several things:
   -First, it creates the frontend website, naming it pizza frontend. The code tells Docker to build it, pointing to the Dockerfile found in the frontend folder. Then the code sets an environment variable for the website: backendUrl=http://backend. Finally, this code opens a port and declares it depends on the backend service.
   -The backend service gets created next. It's named pizzabackend. It's built from the same Dockerfile. The last command specifies which port to open.
+  
+## Kubernetes
+
+In order for Kubernetes to create a container image, it needs a place to get it from. Docker Hub is a central place to upload Docker images. Many products, including Kubernetes, can create containers based on images in Docker Hub. That is why it is needed to push local docker image to Docker Hub. 
+In order to deploy container image to Kubernetes, we create yaml files for backend and frontend where we define what we want Kubernetes to do.
 
 ## Legal Notices
 
