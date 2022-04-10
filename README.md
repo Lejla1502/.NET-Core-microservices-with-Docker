@@ -52,6 +52,21 @@ The code from Docker compose yaml does several things:
 In order for Kubernetes to create a container image, it needs a place to get it from. Docker Hub is a central place to upload Docker images. Many products, including Kubernetes, can create containers based on images in Docker Hub. That is why it is needed to push local docker image to Docker Hub. 
 In order to deploy container image to Kubernetes, we create yaml files for backend and frontend where we define what we want Kubernetes to do.
 
+Steps:
+  1. docker login
+  2. docker tag pizzafrontend [YOUR DOCKER USER NAME]/pizzafrontend
+     docker tag pizzabackend [YOUR DOCKER USER NAME]/pizzabackend
+  3. docker push [YOUR DOCKER USER NAME]/pizzafrontend
+     docker push [YOUR DOCKER USER NAME]/pizzabackend
+
+To download image from Docker Hub and create container:
+      kubectl apply -f backend-deploy.yml
+      kubectl apply -f frontend-deploy.yml
+      
+Scaling container to five instances:
+  kubectl scale --replicas=5 deployment/pizzabackend
+
+
 ## Legal Notices
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
