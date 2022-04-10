@@ -64,7 +64,8 @@ To download image from Docker Hub and create container: <br/>
       kubectl apply -f frontend-deploy.yml
        <br/>
 Scaling container to five instances: <br/>
-  kubectl scale --replicas=5 deployment/pizzabackend
+  kubectl scale --replicas=5 deployment/pizzabackend <br/>
+The reason we need to specify deployment/pizzabackend instead of just pizzabackend is because we're scaling the entire Kubernetes deployment of the pizza backend service, and that will scale the instances of the individual pods correctly.
 
 
 ## Legal Notices
