@@ -54,9 +54,9 @@ In order to deploy container image to Kubernetes, we create yaml files for backe
 
 Steps:
   1. docker login
-  2. docker tag pizzafrontend [YOUR DOCKER USER NAME]/pizzafrontend /
+  2. docker tag pizzafrontend [YOUR DOCKER USER NAME]/pizzafrontend <br/>
      docker tag pizzabackend [YOUR DOCKER USER NAME]/pizzabackend
-  3. docker push [YOUR DOCKER USER NAME]/pizzafrontend /
+  3. docker push [YOUR DOCKER USER NAME]/pizzafrontend <br/>
      docker push [YOUR DOCKER USER NAME]/pizzabackend
 
 To download image from Docker Hub and create container:
